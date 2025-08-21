@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TRU DIAMONDS — Simple Mega Menu</title>
+  <style>
+    :root{
+      --accent:#b8860b; /* gold-ish */
+      --bg:#ffffff;
+      --text:#222;
+      --muted:#666;
+      --nav-height:64px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);}
+
+    /* Header */
+    .site-header{height:var(--nav-height);display:flex;align-items:center;justify-content:space-between;padding:0 24px;border-bottom:1px solid #eee}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:36px;height:36px;border-radius:6px;background:linear-gradient(135deg,#f6e7c3,#ffd96b);display:flex;align-items:center;justify-content:center;font-weight:700;color:#4a2b00}
+    .brand h1{font-size:18px;margin:0}
+
+    /* Nav */
+    nav{position:relative}
+    .nav-list{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    .nav-item{position:relative}
+    .nav-link{display:inline-block;padding:10px 8px;color:var(--text);text-decoration:none;font-weight:600}
+    .nav-link:hover{color:var(--accent)}
+
+    /* Mega panel */
+    .mega{position:absolute;left:0;top:100%;width:100vw;transform:translateX(-24px);padding:20px 24px;background:#fff;border-top:4px solid rgba(184,134,11,0.15);box-shadow:0 10px 30px rgba(20,20,20,0.06);display:none}
+    .nav-item:focus-within > .mega, .nav-item:hover > .mega{display:block}
+    .mega-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+
+    .mega h3{margin:0 0 8px 0;font-size:15px}
+    .mega a{display:block;padding:6px 0;color:var(--muted);text-decoration:none}
+    .mega a:hover{color:var(--text)}
+
+    .promo{grid-column:span 2;background:linear-gradient(180deg,#fff8ed,#fffdf9);padding:14px;border-radius:8px;border:1px solid #faf0d9}
+    .promo img{max-width:100%;border-radius:6px;display:block}
+    .promo .title{font-weight:700;margin-top:8px}
+    .promo .small{color:var(--muted);font-size:13px}
+
+    /* Right area - search & actions */
+    .actions{display:flex;gap:12px;align-items:center}
+    .search{padding:8px;border:1px solid #eee;border-radius:8px}
+
+    /* Mobile */
+    .mobile-toggle{display:none;border:0;background:transparent;font-size:18px}
+    @media (max-width:900px){
+      .nav-list{display:none;position:absolute;left:0;top:var(--nav-height);width:100%;background:#fff;flex-direction:column;padding:12px 16px;border-top:1px solid #eee}
+      .mobile-toggle{display:block}
+      .mega{position:static;transform:none;width:auto;padding:0;margin-top:8px}
+      .mega-inner{grid-template-columns:1fr;gap:12px}
+      .promo{grid-column:span 1}
+      .nav-list.show{display:flex}
+    }
+
+    /* small visual niceties */
+    main{padding:36px}
+    .hero{max-width:900px;margin:0 auto;text-align:center}
+    .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">TD</div>
+      <h1>TRU DIAMONDS</h1>
+    </div>
+
+    <nav>
+      <button class="mobile-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+      <ul id="main-nav" class="nav-list">
+        <li class="nav-item">
+          <a href="#" class="nav-link">Rings</a>
+          <div class="mega" aria-hidden="true">
+            <div class="mega-inner">
+              <div>
+                <h3>Engagement</h3>
+                <a href="#">Solitaire Rings</a>
+                <a href="#">Halo Rings</a>
+                <a href="#">Three-Stone</a>
+                <a href="#">Vintage Styles</a>
+              </div>
+
+              <div>
+                <h3>Wedding Bands</h3>
+                <a href="#">Plain Bands</a>
+                <a href="#">Diamond Bands</a>
+                <a href="#">Stackable Rings</a>
+                <a href="#">Custom Orders</a>
+              </div>
+
+              <div class="promo">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='120'><rect width='100%' height='100%' fill='%23fffef6'/><text x='20' y='55' font-size='20' fill='%23b8860b' font-family='Arial'>Summer Collection</text><text x='20' y='85' font-size='12' fill='%23666'>New lab-grown diamonds</text></svg>" alt="promo">
+                <div class="title">Shop the Summer Edit</div>
+                <div class="small">Limited pieces — handcrafted.</div>
+              </div>
+
+              <div>
+                <h3>Guides</h3>
+                <a href="#">Diamond 4C's</a>
+                <a href="#">Ring Size Guide</a>
+                <a href="#">Care & Warranty</a>
+                <a href="#">Custom Design</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">Necklaces</a>
+          <div class="mega" aria-hidden="true">
+            <div class="mega-inner">
+              <div>
+                <h3>Pendants</h3>
+                <a href="#">Solitaire Pendants</a>
+                <a href="#">Lockets</a>
+                <a href="#">Initials</a>
+              </div>
+              <div>
+                <h3>Chains</h3>
+                <a href="#">Gold Chains</a>
+                <a href="#">Diamond Chains</a>
+                <a href="#">Layered Sets</a>
+              </div>
+              <div class="promo">
+                <div class="title">Free engraving</div>
+                <div class="small">On select pendants.</div>
+              </div>
+              <div>
+                <h3>Collections</h3>
+                <a href="#">Minimal</a>
+                <a href="#">Statement</a>
+                <a href="#">Bridal</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">Earrings</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">Collections</a>
+          <div class="mega" aria-hidden="true">
+            <div class="mega-inner">
+              <div>
+                <h3>Popular</h3>
+                <a href="#">Best Sellers</a>
+                <a href="#">Celebrity Picks</a>
+                <a href="#">Gifts under $500</a>
+              </div>
+              <div>
+                <h3>By Material</h3>
+                <a href="#">Lab-Grown Diamond</a>
+                <a href="#">Ethical Gold</a>
+                <a href="#">Platinum</a>
+              </div>
+              <div class="promo">
+                <div class="title">Handmade</div>
+                <div class="small">Each piece inspected for quality.</div>
+              </div>
+              <div>
+                <h3>Services</h3>
+                <a href="#">Cleaning & Repair</a>
+                <a href="#">Appraisals</a>
+                <a href="#">Custom Design</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <input class="search" placeholder="Search" aria-label="Search">
+      <a class="btn" href="#">Sign In</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Simple Mega Menu Example</h2>
+      <p style="color:var(--muted)">This is a lightweight, responsive mega menu built with HTML/CSS and tiny JS for mobile toggle. Use it in your TRU DIAMONDS site and customize links, images, and colors.</p>
+    </section>
+  </main>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.mobile-toggle');
+    const nav = document.getElementById('main-nav');
+    toggle && toggle.addEventListener('click', ()=>{
+      const show = nav.classList.toggle('show');
+      toggle.setAttribute('aria-expanded', show);
+    });
+
+    // Improve keyboard access: close mega when focus leaves
+    document.querySelectorAll('.nav-item').forEach(item=>{
+      item.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape') item.querySelector('.nav-link').focus();
+      });
+    });
+  </script>
+</body>
+</html>
